@@ -51,10 +51,15 @@ letter-spacing: 0.09em;
     transform: translateY(5px);
     /* move the element down by 5px (it will stay in place because it's attached to the element that also moves up 5px) */
   }
+  .ul-icon {
+    list-style: none;
+    padding: 0;
+  }
   .li-icon{
-    list-style-type: none;
-    padding: 0px 0 3px 30px;
-    margin-bottom: 1rem; 
-    background-size: contain;
+    padding-left: 3em;
     background-repeat: no-repeat;
+  }
+  .li-icon::before{
+    margin-left: -3em; /* same as padding-left of li */
+  width: 3em; /* same as padding-left of li */
   }
