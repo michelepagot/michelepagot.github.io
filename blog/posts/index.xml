@@ -1,19 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Posts on Ciokeroba</title>
-    <link>https://michelepagot.github.io/blog/posts/</link>
-    <description>Recent content in Posts on Ciokeroba</description>
-    <generator>Hugo</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 29 Jun 2025 16:32:24 +0200</lastBuildDate>
-    <atom:link href="https://michelepagot.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Welcome to Ciokeroba</title>
-      <link>https://michelepagot.github.io/blog/posts/welcome/</link>
-      <pubDate>Sun, 29 Jun 2025 16:32:24 +0200</pubDate>
-      <guid>https://michelepagot.github.io/blog/posts/welcome/</guid>
-      <description>&lt;h1 id=&#34;welcome-to-my-blog&#34;&gt;Welcome to my blog!&lt;/h1&gt;&#xA;&lt;p&gt;Hello and welcome to &lt;strong&gt;Ciokeroba&lt;/strong&gt;, my personal blog where I&amp;rsquo;ll be sharing thoughts about software engineering, technology, and various projects I&amp;rsquo;m working on.&lt;/p&gt;&#xA;&lt;p&gt;Stay tuned for more content coming soon!&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on Ciokeroba</title><link>https://michelepagot.github.io/blog/posts/</link><description>Recent content in Posts on Ciokeroba</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 29 Jun 2025 16:32:24 +0200</lastBuildDate><atom:link href="https://michelepagot.github.io/blog/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Welcome to Ciokeroba</title><link>https://michelepagot.github.io/blog/posts/welcome/</link><pubDate>Sun, 29 Jun 2025 16:32:24 +0200</pubDate><guid>https://michelepagot.github.io/blog/posts/welcome/</guid><description>&lt;h1 id="welcome-to-my-blog">Welcome to my blog!&lt;/h1>
+&lt;p>Hello and welcome to &lt;strong>Ciokeroba&lt;/strong>, my personal blog where I&amp;rsquo;ll be sharing thoughts about software engineering, technology, and various projects I&amp;rsquo;m working on.&lt;/p>
+&lt;p>Stay tuned for more content coming soon!&lt;/p>
+&lt;p>In the mean time you can check out the &lt;a href="https://ciokeroba.blogspot.com/">old blog&lt;/a>.&lt;/p></description></item></channel></rss>
