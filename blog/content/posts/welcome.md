@@ -9,3 +9,5 @@ title = 'Welcome to Ciokeroba'
 Hello and welcome to **Ciokeroba**, my personal blog where I'll be sharing thoughts about software engineering, technology, and various projects I'm working on.
 
 Stay tuned for more content coming soon!
+
+In the mean time you can check out the [old blog](https://ciokeroba.blogspot.com/).

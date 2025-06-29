@@ -32,37 +32,53 @@ jobs:
     - name: Build Hugo blog
       run: |
         cd blog
-        pwd
+        echo "Current directory: $(pwd) has contents:"
         ls -lai .
+        echo "themes directory contents:"
         ls -lai themes
-        hugo --logLevel debug build --destination ../temp-blog
+        echo "Build Hugo site"
+        hugo --logLevel debug --minify --gc --destination ../temp-blog
     
     - name: Copy homepage files to temp directory
       run: |
+        echo "Content of the /tmp directory before copying files:"
         ls -lai /tmp
+        echo "Create folder for deployment in /tmp/deploy" 
+        rm -rf /tmp/deploy
         mkdir /tmp/deploy
         cp -r index.html css images LICENSE README.md /tmp/deploy/
-        pwd
+        echo "Corrent folder $(pwd). temp-blog directory contents:"
         ls -lai temp-blog
+        echo "Copy temp-blog directory to /tmp/deploy"
         mv temp-blog /tmp/deploy/blog
+        echo "Content of the /tmp/deploy directory after copying files:"
         ls -lai /tmp/deploy
+        echo "Content of the /tmp/deploy/blog directory:"
         ls -lai /tmp/deploy/blog
     
     - name: Checkout master branch
       run: |
-        pwd
+        echo "Current folder $(pwd)"
         git fetch origin master:master
+        echo "fetch result:$?"
         git checkout master
+        echo "checkout result:$?" 
+        echo "Current directory after checkout: $(pwd)"
+        echo "Contents of the current directory:"
         ls -lai
     
     - name: Clean master branch (keep .git)
       run: |
+        echo "Cleaning master branch, keeping .git directory"
+        echo "Current directory before cleaning: $(pwd)"
         find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
     
     - name: Copy all files to master
       run: |
+        echo "Copying files from /tmp/deploy to the current directory $(pwd)"
         cp -r /tmp/deploy/* .
-    
+        echo "Current directory after copying files: $(pwd)"
+        ls -lai
     
     - name: Configure git
       run: |
@@ -71,7 +87,15 @@ jobs:
     
     - name: Commit and push to master
       run: |
+        echo "Current directory: $(pwd)"
+        echo "Current branch: $(git branch --show-current)"
+        echo "Current git status:"
+        git status
+        echo "Adding files to git"
         git add .
+        echo "Files added to git"
+        git status
+        echo "Committing changes"
         if ! git diff --staged --quiet; then
           git commit -m "Deploy site - $(date)"
           git push origin master
