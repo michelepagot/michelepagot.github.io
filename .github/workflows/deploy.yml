@@ -32,7 +32,13 @@ jobs:
     - name: Build Hugo blog
       run: |
         cd blog
-        hugo --destination ../blog-generated
+        hugo --destination ../temp-blog
+    
+    - name: Copy homepage files to temp directory
+      run: |
+        mkdir temp-deploy
+        cp -r index.html css images LICENSE README.md temp-deploy/
+        mv temp-blog temp-deploy/blog
     
     - name: Checkout master branch
       run: |
@@ -43,14 +49,10 @@ jobs:
       run: |
         find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
     
-    - name: Copy homepage files from development
+    - name: Copy all files to master
       run: |
-        git checkout development -- index.html css images LICENSE README.md
+        cp -r temp-deploy/* .
     
-    - name: Copy generated blog files
-      run: |
-        git checkout development -- blog-generated
-        mv blog-generated blog
     
     - name: Configure git
       run: |
