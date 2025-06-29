@@ -35,7 +35,7 @@ jobs:
         pwd
         ls -lai .
         ls -lai themes
-        hugo --destination ../temp-blog
+        hugo build -v --destination ../temp-blog
     
     - name: Copy homepage files to temp directory
       run: |
@@ -53,7 +53,7 @@ jobs:
         pwd
         git fetch origin master:master
         git checkout master
-        la -lai
+        ls -lai
     
     - name: Clean master branch (keep .git)
       run: |
