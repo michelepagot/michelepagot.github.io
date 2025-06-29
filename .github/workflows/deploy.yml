@@ -1,0 +1,68 @@
+name: Build and Deploy Site
+
+on:
+  push:
+    branches:
+      - development
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout development branch
+      uses: actions/checkout@v4
+      with:
+        ref: development
+        submodules: recursive
+        fetch-depth: 0
+    
+    - name: Setup Hugo
+      uses: peaceiris/actions-hugo@v3
+      with:
+        hugo-version: 'latest'
+        extended: true
+    
+    - name: Build Hugo blog
+      run: |
+        cd blog
+        hugo --destination ../blog-generated
+    
+    - name: Checkout master branch
+      run: |
+        git fetch origin master:master
+        git checkout master
+    
+    - name: Clean master branch (keep .git)
+      run: |
+        find . -mindepth 1 -maxdepth 1 ! -name '.git' -exec rm -rf {} +
+    
+    - name: Copy homepage files from development
+      run: |
+        git checkout development -- index.html css images LICENSE README.md
+    
+    - name: Copy generated blog files
+      run: |
+        git checkout development -- blog-generated
+        mv blog-generated blog
+    
+    - name: Configure git
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+    
+    - name: Commit and push to master
+      run: |
+        git add .
+        if ! git diff --staged --quiet; then
+          git commit -m "Deploy site - $(date)"
+          git push origin master
+        else
+          echo "No changes to deploy"
+        fi
