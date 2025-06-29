@@ -1,0 +1,6 @@
+baseURL = 'https://michelepagot.github.io/blog/'
+languageCode = 'en-us'
+title = 'Ciokeroba'
+theme = 'not-much'
+relativeURLs = true
+canonifyURLs = true

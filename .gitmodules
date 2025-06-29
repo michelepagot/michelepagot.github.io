@@ -1,0 +1,3 @@
+[submodule "blog/themes/not-much"]
+	path = blog/themes/not-much
+	url = https://github.com/imgios/not-much.git
