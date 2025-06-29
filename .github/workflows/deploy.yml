@@ -36,9 +36,9 @@ jobs:
     
     - name: Copy homepage files to temp directory
       run: |
-        mkdir temp-deploy
-        cp -r index.html css images LICENSE README.md temp-deploy/
-        mv temp-blog temp-deploy/blog
+        mkdir /tmp/deploy
+        cp -r index.html css images LICENSE README.md /tmp/deploy/
+        mv temp-blog /tmp/deploy/blog
     
     - name: Checkout master branch
       run: |
@@ -51,7 +51,7 @@ jobs:
     
     - name: Copy all files to master
       run: |
-        cp -r temp-deploy/* .
+        cp -r /tmp/deploy/* .
     
     
     - name: Configure git
